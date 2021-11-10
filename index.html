@@ -5,12 +5,12 @@
     <meta name="og:title"       content="Index">
     <meta name="og:description" content="">
     <script>      
-      document.onload = async function () {
-        let se = document.createElement('style');
+       let style = async () => {
+        let se = document.createElement('style'), esc = (s) => s.split('').flatMap(c => !/[\w-]/.test(c) ? '\\' + c : c).join('');
         
         function styleElement(elements) {
-          if(elements instanceof Array) elements.filter(e => e.className).forEach(e => {
-            e.className.split(/\s+/g).forEach(cn => {
+          elements.forEach(e => {
+            e.className.split(/\s+/g).filter(cn => cn).forEach(cn => {
               let _ = cn.split('|'),
                   rl = (__ => {
                     let x = { ce: '', pe: '' };
@@ -20,12 +20,13 @@
                         case ':': x.pe = ':' + ___.slice(0, -1); break;
                       }
                     });
+                    return x;
                   })(_[_.length - 2] ?? ''),
                   asn = _[_.length - 1].split(/\:/);
               
-              se.innerHTML += `.${escape(cn)}${rl.ce}${rl.pe}{${asn[0]}:${asn[1]}}`;
+              se.innerHTML += `.${esc(cn)}${rl.ce}${rl.pe}{${asn[0]}:${asn[1]}}`;
             });
-          }); else console.warn('elements is not an array. Please make sure it is an array.');
+          });
         }
         
         styleElement([document.body]);
@@ -36,7 +37,7 @@
     </script>
   </head>
   
-  <body>
+  <body onload="style()">
     <p class="color:red">If the script is functional, this should be red</p>
   </body>
 </html>
