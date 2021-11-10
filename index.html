@@ -3,9 +3,11 @@
     <meta charset="UTF-8">
     <meta name="og:site_name"   content="LiteTools">
     <meta name="og:title"       content="Index">
-    <meta name="og:description" content="">
+    <meta name="og:description" content="LiteTools is an organization that aims towards making lightweight open-sourced tools for computers.">
+    
     <script>      
-       let style = async () => {
+      let style = async () => {
+        let map = { bc: 'background-color', tc: 'color', ff: 'font-family' }
         let se = document.createElement('style'), esc = (s) => s.split('').flatMap(c => !/[\w-]/.test(c) ? '\\' + c : c).join('');
         
         function styleElement(elements) {
@@ -23,8 +25,8 @@
                     return x;
                   })(_[_.length - 2] ?? ''),
                   asn = _[_.length - 1].split(/\:/);
-              
-              se.innerHTML += `.${esc(cn)}${rl.ce}${rl.pe}{${asn[0]}:${asn[1]}}`;
+
+              se.innerHTML += `.${esc(cn)}${rl.ce}${rl.pe}{${map[asn[0]] || asn[0]}:${asn[1].replaceAll('_', ' ')}}`;
             });
           });
         }
@@ -35,9 +37,25 @@
         document.head.append(se);
       }
     </script>
+    
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"> 
   </head>
   
-  <body onload="style()">
-    <p class="color:red">If the script is functional, this should be red</p>
+  <body class="margin:0 *^|margin:0 ff:Open_Sans" onload="style()">
+    <nav class="bc:#0277bd tc:#fafbfc padding:0_10%">
+      <img class="width:auto height:32px" src="https://avatars.githubusercontent.com/u/88065090?s=200&v=4">
+    </nav>
+
+    <main class="tc:#030506 padding:0_10%">
+      <p>Placeholder text</p>
+    </main>
+    
+    <footer class="bc:#202225 tc:#e6e9ed">
+      <div class="display:flex justify-content:center gap:2%">
+        <!-- to be added -->
+      </div>
+      
+      <strong>&copy; 2021 LiteTools Organization.</strong>
+    </footer>
   </body>
 </html>
