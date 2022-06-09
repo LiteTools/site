@@ -1,8 +1,8 @@
-# LiteTools Open Source Website
-This is our official website which has been open sourced for the community to view, edit, and help develop.
+# LiteTools
+This is our official website which has been open sourced for the community to view, edit, and develop.
 
 ## Notice
-This site is in beta, and does not reflect the current website that's being used. We plan for this website to stay in development for a long time until we think it's stable enough.
+This site is in beta, and does not reflect the current website that is being used.
 
 ### Links
 https://pages.github.io/LiteTools/site - Page to **this** website.
